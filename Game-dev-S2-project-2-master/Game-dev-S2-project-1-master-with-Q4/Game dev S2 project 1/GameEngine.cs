@@ -189,7 +189,7 @@ namespace Game_dev_S2_project_1
                 {
                     targetTile = ht.visionArray[(int)direct];
 
-                    if (targetTile.display == 'Ϫ')
+                    if (targetTile.display == 'Ϫ' || targetTile.display == 'ᐂ' || targetTile.display == '§')
                     {
                         success = true;
                         ct = targetTile as CharacterTile;

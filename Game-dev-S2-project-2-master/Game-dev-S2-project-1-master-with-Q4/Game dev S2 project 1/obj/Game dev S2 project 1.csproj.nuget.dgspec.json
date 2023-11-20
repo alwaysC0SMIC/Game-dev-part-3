@@ -1,23 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Jordan\\Downloads\\Game-dev-S2-project-2-master\\Game-dev-S2-project-2-master\\Game Dev project new\\Game-dev-S2-project-1-master\\Game dev S2 project 1\\Game dev S2 project 1.csproj": {}
+    "D:\\!VEGA\\Development 2\\!PART 3\\Game-dev-S2-project-2-master\\Game-dev-S2-project-1-master-with-Q4\\Game dev S2 project 1\\Game dev S2 project 1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Jordan\\Downloads\\Game-dev-S2-project-2-master\\Game-dev-S2-project-2-master\\Game Dev project new\\Game-dev-S2-project-1-master\\Game dev S2 project 1\\Game dev S2 project 1.csproj": {
+    "D:\\!VEGA\\Development 2\\!PART 3\\Game-dev-S2-project-2-master\\Game-dev-S2-project-1-master-with-Q4\\Game dev S2 project 1\\Game dev S2 project 1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Jordan\\Downloads\\Game-dev-S2-project-2-master\\Game-dev-S2-project-2-master\\Game Dev project new\\Game-dev-S2-project-1-master\\Game dev S2 project 1\\Game dev S2 project 1.csproj",
+        "projectUniqueName": "D:\\!VEGA\\Development 2\\!PART 3\\Game-dev-S2-project-2-master\\Game-dev-S2-project-1-master-with-Q4\\Game dev S2 project 1\\Game dev S2 project 1.csproj",
         "projectName": "Game dev S2 project 1",
-        "projectPath": "C:\\Users\\Jordan\\Downloads\\Game-dev-S2-project-2-master\\Game-dev-S2-project-2-master\\Game Dev project new\\Game-dev-S2-project-1-master\\Game dev S2 project 1\\Game dev S2 project 1.csproj",
-        "packagesPath": "C:\\Users\\Jordan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Jordan\\Downloads\\Game-dev-S2-project-2-master\\Game-dev-S2-project-2-master\\Game Dev project new\\Game-dev-S2-project-1-master\\Game dev S2 project 1\\obj\\",
+        "projectPath": "D:\\!VEGA\\Development 2\\!PART 3\\Game-dev-S2-project-2-master\\Game-dev-S2-project-1-master-with-Q4\\Game dev S2 project 1\\Game dev S2 project 1.csproj",
+        "packagesPath": "C:\\Users\\stuar\\.nuget\\packages\\",
+        "outputPath": "D:\\!VEGA\\Development 2\\!PART 3\\Game-dev-S2-project-2-master\\Game-dev-S2-project-1-master-with-Q4\\Game dev S2 project 1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "D:\\SDK folder\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Jordan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\stuar\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +27,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -62,7 +64,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

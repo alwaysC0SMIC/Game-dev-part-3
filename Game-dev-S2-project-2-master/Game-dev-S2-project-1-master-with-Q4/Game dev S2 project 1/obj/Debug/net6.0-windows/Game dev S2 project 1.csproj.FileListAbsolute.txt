@@ -66,3 +66,20 @@ C:\Users\Jordan\Downloads\Game-dev-S2-project-2-master\Game-dev-S2-project-2-mas
 C:\Users\Jordan\Downloads\Game-dev-S2-project-2-master\Game-dev-S2-project-2-master\Game Dev project new\Game-dev-S2-project-1-master\Game dev S2 project 1\obj\Debug\net6.0-windows\Game dev S2 project 1.pdb
 C:\Users\Jordan\Downloads\Game-dev-S2-project-2-master\Game-dev-S2-project-2-master\Game Dev project new\Game-dev-S2-project-1-master\Game dev S2 project 1\obj\Debug\net6.0-windows\Game dev S2 project 1.genruntimeconfig.cache
 C:\Users\Jordan\Downloads\Game-dev-S2-project-2-master\Game-dev-S2-project-2-master\Game Dev project new\Game-dev-S2-project-1-master\Game dev S2 project 1\obj\Debug\net6.0-windows\ref\Game dev S2 project 1.dll
+D:\!VEGA\Development 2\!PART 3\Game-dev-S2-project-2-master\Game-dev-S2-project-1-master-with-Q4\Game dev S2 project 1\bin\Debug\net6.0-windows\Game dev S2 project 1.exe
+D:\!VEGA\Development 2\!PART 3\Game-dev-S2-project-2-master\Game-dev-S2-project-1-master-with-Q4\Game dev S2 project 1\bin\Debug\net6.0-windows\Game dev S2 project 1.deps.json
+D:\!VEGA\Development 2\!PART 3\Game-dev-S2-project-2-master\Game-dev-S2-project-1-master-with-Q4\Game dev S2 project 1\bin\Debug\net6.0-windows\Game dev S2 project 1.runtimeconfig.json
+D:\!VEGA\Development 2\!PART 3\Game-dev-S2-project-2-master\Game-dev-S2-project-1-master-with-Q4\Game dev S2 project 1\bin\Debug\net6.0-windows\Game dev S2 project 1.dll
+D:\!VEGA\Development 2\!PART 3\Game-dev-S2-project-2-master\Game-dev-S2-project-1-master-with-Q4\Game dev S2 project 1\bin\Debug\net6.0-windows\Game dev S2 project 1.pdb
+D:\!VEGA\Development 2\!PART 3\Game-dev-S2-project-2-master\Game-dev-S2-project-1-master-with-Q4\Game dev S2 project 1\obj\Debug\net6.0-windows\Game dev S2 project 1.csproj.AssemblyReference.cache
+D:\!VEGA\Development 2\!PART 3\Game-dev-S2-project-2-master\Game-dev-S2-project-1-master-with-Q4\Game dev S2 project 1\obj\Debug\net6.0-windows\Game_dev_S2_project_1.Form1.resources
+D:\!VEGA\Development 2\!PART 3\Game-dev-S2-project-2-master\Game-dev-S2-project-1-master-with-Q4\Game dev S2 project 1\obj\Debug\net6.0-windows\Game dev S2 project 1.csproj.GenerateResource.cache
+D:\!VEGA\Development 2\!PART 3\Game-dev-S2-project-2-master\Game-dev-S2-project-1-master-with-Q4\Game dev S2 project 1\obj\Debug\net6.0-windows\Game dev S2 project 1.GeneratedMSBuildEditorConfig.editorconfig
+D:\!VEGA\Development 2\!PART 3\Game-dev-S2-project-2-master\Game-dev-S2-project-1-master-with-Q4\Game dev S2 project 1\obj\Debug\net6.0-windows\Game dev S2 project 1.AssemblyInfoInputs.cache
+D:\!VEGA\Development 2\!PART 3\Game-dev-S2-project-2-master\Game-dev-S2-project-1-master-with-Q4\Game dev S2 project 1\obj\Debug\net6.0-windows\Game dev S2 project 1.AssemblyInfo.cs
+D:\!VEGA\Development 2\!PART 3\Game-dev-S2-project-2-master\Game-dev-S2-project-1-master-with-Q4\Game dev S2 project 1\obj\Debug\net6.0-windows\Game dev S2 project 1.csproj.CoreCompileInputs.cache
+D:\!VEGA\Development 2\!PART 3\Game-dev-S2-project-2-master\Game-dev-S2-project-1-master-with-Q4\Game dev S2 project 1\obj\Debug\net6.0-windows\Game dev S2 project 1.dll
+D:\!VEGA\Development 2\!PART 3\Game-dev-S2-project-2-master\Game-dev-S2-project-1-master-with-Q4\Game dev S2 project 1\obj\Debug\net6.0-windows\refint\Game dev S2 project 1.dll
+D:\!VEGA\Development 2\!PART 3\Game-dev-S2-project-2-master\Game-dev-S2-project-1-master-with-Q4\Game dev S2 project 1\obj\Debug\net6.0-windows\Game dev S2 project 1.pdb
+D:\!VEGA\Development 2\!PART 3\Game-dev-S2-project-2-master\Game-dev-S2-project-1-master-with-Q4\Game dev S2 project 1\obj\Debug\net6.0-windows\Game dev S2 project 1.genruntimeconfig.cache
+D:\!VEGA\Development 2\!PART 3\Game-dev-S2-project-2-master\Game-dev-S2-project-1-master-with-Q4\Game dev S2 project 1\obj\Debug\net6.0-windows\ref\Game dev S2 project 1.dll

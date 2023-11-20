@@ -10,7 +10,9 @@ namespace Game_dev_S2_project_1
     {
         //Part 2 Q2.1
         //Constructor with position, hit points and attack power parameters
-        public EnemyTile(Position pos, int hitPoints, int attPower) : base(pos, hitPoints, attPower)
+        //Part 3 Q2.1
+        //Level parameter added to constructor
+        public EnemyTile(Position pos, int hitPoints, int attPower, Level lvl) : base(pos, hitPoints, attPower)
         {   
         }
 

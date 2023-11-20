@@ -90,7 +90,7 @@ namespace Game_dev_S2_project_1
             for (int i = 0; i < enemyNum; i++) {
                 Position randomEnemy = GetRandomEmptyPosition();
                 CreateTile(TileType.Enemy, randomEnemy);
-                enemyArray[i] = new GruntTile(randomEnemy);
+                enemyArray[i] = new GruntTile(randomEnemy, this);
             }
 
             
@@ -149,8 +149,8 @@ namespace Game_dev_S2_project_1
                     array2D[pos.XCod, pos.YCod] = tile;
                     break;
                 case TileType.Enemy:
-                    //Will be updated to produce random enemy in part 3
-                    tile = new GruntTile(pos);  
+                    //Produces random enemy 
+                    tile = CreateEnemyTile(pos);  
                     array2D[pos.XCod, pos.YCod] = tile;
                     break;
                 case TileType.PickUp: // will have differnt types of pick up items in part 3 
@@ -290,6 +290,40 @@ namespace Game_dev_S2_project_1
                 et[i].UpdateVision(lvl);
             }
         }
+
+        //Part 3 Q2.4
+        private EnemyTile CreateEnemyTile(Position pos)
+        {
+            EnemyTile enemyArray = null;
+
+            //Generates random number between 1 and 100
+            Random rnd = new Random();
+            int typeSelector = rnd.Next(1, 100);
+
+            //Creates enemytile based off percentage chance
+            if (1 <= typeSelector && typeSelector <= 50)
+            {
+                enemyArray = new GruntTile(pos, this);
+            }
+            else {
+                if (51 <= typeSelector && typeSelector <= 80)
+                {
+                    enemyArray = new WarlockTile(pos, this);
+                }
+                else {
+                    if (81 <= typeSelector && typeSelector <= 100)
+                    {
+                        enemyArray = new TyrantTile(pos, this);
+                    }
+                }
+            }
+
+            return enemyArray;  
+        }
+
+
+
+
     }
 }
 //reference

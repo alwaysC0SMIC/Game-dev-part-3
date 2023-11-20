@@ -9,8 +9,8 @@ namespace Game_dev_S2_project_1
     public class GruntTile : EnemyTile
     {
         //Part 2 Q2.2
-        
-        public GruntTile(Position pos, int hitPoints = 10, int attPower = 1) : base(pos, hitPoints, attPower)
+        //Part 3 Q2.1 - Added level parameter
+        public GruntTile(Position pos, Level lvl, int hitPoints = 10, int attPower = 1) : base(pos, hitPoints, attPower, lvl)
         {
         }
 
