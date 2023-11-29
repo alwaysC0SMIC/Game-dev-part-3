@@ -34,8 +34,8 @@
             Right = new Button();
             Left = new Button();
             hitPointsLabel = new Label();
-            PickUpLabel = new Label();
-            DamageLabel = new Label();
+            Save = new Label();
+            Load = new Label();
             SuspendLayout();
             // 
             // IbIDisplay
@@ -102,32 +102,33 @@
             hitPointsLabel.TabIndex = 6;
             hitPointsLabel.Text = "HP: 40/40";
             // 
-            // PickUpLabel
+            // Save
             // 
-            PickUpLabel.AutoSize = true;
-            PickUpLabel.Location = new Point(46, 391);
-            PickUpLabel.Name = "PickUpLabel";
-            PickUpLabel.Size = new Size(124, 15);
-            PickUpLabel.TabIndex = 7;
-            PickUpLabel.Text = "no of Health Pick Ups:";
+            Save.AutoSize = true;
+            Save.Location = new Point(46, 332);
+            Save.Name = "Save";
+            Save.Size = new Size(31, 15);
+            Save.TabIndex = 9;
+            Save.Text = "Save";
+            Save.Click += Save_Click;
             // 
-            // DamageLabel
+            // Load
             // 
-            DamageLabel.AutoSize = true;
-            DamageLabel.Location = new Point(46, 406);
-            DamageLabel.Name = "DamageLabel";
-            DamageLabel.Size = new Size(75, 15);
-            DamageLabel.TabIndex = 8;
-            DamageLabel.Text = "Status of exit";
-            DamageLabel.Click += DamageLabel_Click;
+            Load.AutoSize = true;
+            Load.Location = new Point(90, 332);
+            Load.Name = "Load";
+            Load.Size = new Size(33, 15);
+            Load.TabIndex = 10;
+            Load.Text = "Load";
+            Load.Click += Load_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(DamageLabel);
-            Controls.Add(PickUpLabel);
+            Controls.Add(Load);
+            Controls.Add(Save);
             Controls.Add(hitPointsLabel);
             Controls.Add(Left);
             Controls.Add(Right);
@@ -136,7 +137,6 @@
             Controls.Add(IbIDisplay);
             Name = "Form1";
             Text = "Form1";
-            Load += Form1_Load;
             KeyDown += Form1_KeyDown;
             ResumeLayout(false);
             PerformLayout();
@@ -150,7 +150,7 @@
         private Button Right;
         private Button Left;
         private Label hitPointsLabel;
-        private Label PickUpLabel;
-        private Label DamageLabel;
+        private Label Save;
+        private Label Load;
     }
 }

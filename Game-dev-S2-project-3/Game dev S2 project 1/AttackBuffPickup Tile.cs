@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Game_dev_S2_project_1
 {
+    [Serializable]
     public class AttackBuffPickup_Tile : PickUpTile
     {
-        // Q.3.2
         //Displays the attack buff
         public override char display
         {
@@ -23,8 +23,6 @@ namespace Game_dev_S2_project_1
         public AttackBuffPickup_Tile(Position position) : base(position)
         {
             this.PickupPos = position;
-            
-            
         }
         public Position PickupPos { get; }
 
@@ -32,9 +30,6 @@ namespace Game_dev_S2_project_1
         public override void ApplyEffect(CharacterTile characterTile)
         {
             characterTile.SetDoubleDamage(3);
-            
-            
-            
             
         }
   

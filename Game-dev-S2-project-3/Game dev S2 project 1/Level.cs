@@ -9,6 +9,7 @@ using System.Windows.Forms;
 
 namespace Game_dev_S2_project_1
 {
+    [Serializable]
     public class Level
     {
         public Tile[,] array2D;
@@ -21,7 +22,6 @@ namespace Game_dev_S2_project_1
         //Part 2 Q2.3
         //Stores all enemies in the level
         private EnemyTile[] enemyArray;
-
         private PickUpTile pickUpTile;
 
         //If all enemies are dead the exit unlocks
@@ -45,22 +45,17 @@ namespace Game_dev_S2_project_1
         private PickUpTile CreatPickupTile (Position position)
         {
             PickUpTile result;
-
             Random rand = new Random();
             int ran = rand.Next(1,101);
-            
             
             if (ran > 65)
             {
                 result = new HealthPickUpTile(position);
-                
             }
             else
             {
                 result = new AttackBuffPickup_Tile(position);
-                
             }
-
             return result;
         }
   
@@ -126,16 +121,13 @@ namespace Game_dev_S2_project_1
                 ht.y = randomHero.YCod;
                 heroTile = ht;
             }
-            //heroTile.UpdateVision(this);  - no longer needed
+            
 
             //Populates level with enemy tiles
             for (int i = 0; i < enemyNum; i++) {
                 Position randomEnemy = GetRandomEmptyPosition();
-
-                
                 enemyArray[i] = CreateTile(TileType.Enemy, randomEnemy) as EnemyTile;
             }
-
 
             UpdateVision(this, heroTile, enemyArray);
 
@@ -167,7 +159,7 @@ namespace Game_dev_S2_project_1
             return CreateTile(type, pos);
         }
 
-        //Uses the tiletype and position to decide if it will be an empty tile, wall tile, hero tile or exit tile
+        //Uses the tiletype and position to decide what type of tile it will create
         public Tile CreateTile(TileType type, Position pos)
         {
             Tile tile = null;
@@ -190,11 +182,10 @@ namespace Game_dev_S2_project_1
                     array2D[pos.XCod, pos.YCod] = tile;
                     break;
                 case TileType.Enemy:
-                    //Produces random enemy 
                     tile = CreateEnemyTile(pos);  
                     array2D[pos.XCod, pos.YCod] = tile;
                     break;
-                case TileType.PickUp: // will have differnt types of pick up items in part 3 
+                case TileType.PickUp: 
                     tile = CreatPickupTile(pos);
                     array2D[pos.XCod, pos.YCod] = tile;
                     break;
@@ -269,7 +260,6 @@ namespace Game_dev_S2_project_1
             return ps;
         }
 
-        
         //Swaps 2 tiles
         public void SwopTiles(Tile swap1, Tile swap2)
         {
@@ -290,7 +280,6 @@ namespace Game_dev_S2_project_1
                 swap1.x = swap2.x;
                 swap2.x = tempX;
 
-                
             }
             catch (NullReferenceException ex)
             {
@@ -304,11 +293,7 @@ namespace Game_dev_S2_project_1
             return heroTile;
         }
 
-        //ExitTile is read only property for exposure
-        public ExitTile getExitTile()
-        {
-            return exitTile;
-        }
+       
 
         //Accessor for enemyArray
         public EnemyTile[] GetEnemyTiles()
@@ -317,8 +302,6 @@ namespace Game_dev_S2_project_1
         }
 
        
-
-
         //Part 2 Q2.3 - UpdateVision method for updating all characterTiles
         public void UpdateVision(Level lvl, HeroTile ht, EnemyTile[] et)
         {
@@ -363,13 +346,43 @@ namespace Game_dev_S2_project_1
         }
 
 
-
-
     }
 }
 //reference
-//https://stackoverflow.com/questions/622832/how-to-build-a-tiled-map-in-java-for-a-2d-game
-//https://codereview.stackexchange.com/questions/10550/creating-a-2d-array-of-map-tiles
-//https://stackoverflow.com/questions/2706500/how-do-i-generate-a-random-integer-in-c
-// https://stackoverflow.com/questions/72639651/c-sharp-how-to-use-values-in-array-from-one-class-to-another-class
-//https://www.infoworld.com/article/3546242/how-to-use-const-readonly-and-static-in-csharp.html#:~:text=Use%20the%20readonly%20keyword%20in,or%20in%20a%20constructor%20only.
+/*
+ * 
+ * Schauder, J. (2009). How to Build a Tiled Map in Java For a 2d Game. [Online]. Available at:
+ * https://stackoverflow.com/questions/622832/how-to-build-a-tiled-map-in-java-for-a-2d-game 
+ * [Last Accessed 28 November 2023]
+  
+   Spencer, Forsberg, S. (2014). Creating a 2D array of map tiles. [Online]. Available at: 
+   https://codereview.stackexchange.com/questions/10550/creating-a-2d-array-of-map-tiles
+   [Last Accessed 28 November 2023]
+  
+   Guffa. (2010). How do I generate a random integer in C#?. [Online]. Available at:
+   https://stackoverflow.com/questions/2706500/how-do-i-generate-a-random-integer-in-c
+   [Last Accessed 28 November 2023]
+ 
+   gon. (2022). C# How to use values in array from one Class to another Class. Available at:
+   https://stackoverflow.com/questions/72639651/c-sharp-how-to-use-values-in-array-from-one-class-to-another-class
+   [Last Accessed 28 November 2023]
+  
+   Kanjilal, J. (2020). How to use const, readonly, and static in C#. Available at: 
+   https://www.infoworld.com/article/3546242/how-to-use-const-readonly-and-static-in-csharp.html#:~:text=Use%20the%20readonly%20keyword%20in,or%20in%20a%20constructor%20only.
+   [Last Accessed 28 November 2023]   
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ 
+ 
+ 
+ 
+ */

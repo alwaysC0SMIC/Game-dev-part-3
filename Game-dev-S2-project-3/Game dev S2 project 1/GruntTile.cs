@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game_dev_S2_project_1
 {
+    [Serializable]
     public class GruntTile : EnemyTile
     {
         //Part 2 Q2.2
@@ -15,7 +16,6 @@ namespace Game_dev_S2_project_1
         }
 
         //Dispays the character tile and what state they are
-        
         public override char display
         {
             get
@@ -27,7 +27,6 @@ namespace Game_dev_S2_project_1
                 else
                 {
                     return char.Parse("Ϫ");
-                    
                 }
             }
         }

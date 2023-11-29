@@ -8,7 +8,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace Game_dev_S2_project_1
 {
-
+    [Serializable]
     public abstract class CharacterTile : Tile
     {
         //Variables
@@ -20,13 +20,9 @@ namespace Game_dev_S2_project_1
         //determines the number of attacks double damage will be applied to
         public void SetDoubleDamage (int doubleDamage)
         { 
-
             this.doubleDamageCount = this.doubleDamageCount + doubleDamage;
-
-
         }
-        
-
+       
         //Constructor that assigns variables
         public CharacterTile(Position pos, int hitPnts, int attPwr) : base(pos)
         {
@@ -56,7 +52,6 @@ namespace Game_dev_S2_project_1
                 visionArray[2] = tileDown;
                 visionArray[3] = tileLeft;
 
-
             }
             catch (NullReferenceException ex)
             {
@@ -79,16 +74,13 @@ namespace Game_dev_S2_project_1
         {
             
             if (doubleDamageCount > 0)
-            {
-                
+            {         
                 attChar.TakeDamage(attPower*2);
                 doubleDamageCount = doubleDamageCount - 1;
-
             }
             else
             {
                 attChar.TakeDamage(attPower);
-
             }
             
         }
@@ -102,16 +94,12 @@ namespace Game_dev_S2_project_1
         public void Heal(int resamount)
         {
 
-
             hitPoints += resamount;
             if (hitPoints >= maxHitPoints)
             {
               hitPoints = maxHitPoints;
                
             }
-
-
-
         }
 
         //Accessor method for exposing character's hitpoints, used for debugging
@@ -120,16 +108,7 @@ namespace Game_dev_S2_project_1
             return hitPoints;
         }
 
-        //Accessor method for exposing chaeracters damage, used for debugging
-        public int Damage()
-        {
-            
-                return attPower;
-                
-
-
-           
-        }
+        
 
     }
     //References:

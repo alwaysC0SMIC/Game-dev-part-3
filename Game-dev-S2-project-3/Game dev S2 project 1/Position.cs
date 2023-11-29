@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Game_dev_S2_project_1
 {
+    [Serializable]
     public class Position
     {
         //Two integer fields, one storing the x-cordinate and the other storing the y-coordinate

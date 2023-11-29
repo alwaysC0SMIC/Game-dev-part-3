@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Max\\Downloads\\Game-dev-S2-project-1-master-with-Q4\\Game dev S2 project 1\\Game dev S2 project 1.csproj",
+      "projectUniqueName": "C:\\Users\\Max\\Downloads\\Game-dev-S2-project-3 (1)\\Game-dev-S2-project-3\\Game dev S2 project 1\\Game dev S2 project 1.csproj",
       "projectName": "Game dev S2 project 1",
-      "projectPath": "C:\\Users\\Max\\Downloads\\Game-dev-S2-project-1-master-with-Q4\\Game dev S2 project 1\\Game dev S2 project 1.csproj",
+      "projectPath": "C:\\Users\\Max\\Downloads\\Game-dev-S2-project-3 (1)\\Game-dev-S2-project-3\\Game dev S2 project 1\\Game dev S2 project 1.csproj",
       "packagesPath": "C:\\Users\\Max\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Max\\Downloads\\Game-dev-S2-project-1-master-with-Q4\\Game dev S2 project 1\\obj\\",
+      "outputPath": "C:\\Users\\Max\\Downloads\\Game-dev-S2-project-3 (1)\\Game-dev-S2-project-3\\Game dev S2 project 1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Max\\AppData\\Roaming\\NuGet\\NuGet.Config",

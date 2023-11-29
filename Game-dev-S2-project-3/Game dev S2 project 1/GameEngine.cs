@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,8 +15,8 @@ namespace Game_dev_S2_project_1
         private Level currentlevel;
         private int NumLevels;
         private int currentLevelNumber = 1;
-        //private random used for rolling random numbers
 
+        //private random used for rolling random numbers
         private Random random;
         const int MIN_SIZE = 10;
         const int MAX_SIZE = 20;
@@ -25,10 +28,8 @@ namespace Game_dev_S2_project_1
         private int numMoves = 0;
 
         public string heroStats;
-        public string nopickups;
 
-        //This is debug code that was used inititally to determine damage but is currently used for status of exit
-        public string heroDamage;
+        
 
         public GameEngine(int NumLevels)
         {
@@ -41,9 +42,7 @@ namespace Game_dev_S2_project_1
             int height = rnd.Next(MIN_SIZE, MAX_SIZE + 1);
             this.NumLevels = NumLevels;
             currentlevel = new Level(width, height, currentLevelNumber);
-            nopickups = getPicUpNo();
-
-
+            
         }
         //This method will return the ToString value of the current-level , or an end screen if the game is completed
         public String ToString()
@@ -60,7 +59,6 @@ namespace Game_dev_S2_project_1
             else if (game == GameState.GameOver) {
                 result = "GAME OVER";
             }
-
             return result;
         }
 
@@ -73,11 +71,9 @@ namespace Game_dev_S2_project_1
 
             HeroTile hero = currentlevel.getHeroTile();
 
-            nopickups = "Tile Image: " + hero.visionArray[targetTile].display;
             //Checks if tile is an exit tile and unlocked
             if (hero.visionArray[targetTile].display == '▒') {
                 success = true;
-                nopickups = "Entered next level";
                 if (currentLevelNumber >= NumLevels)
                 {
                     game = GameState.Complete;
@@ -132,7 +128,7 @@ namespace Game_dev_S2_project_1
                     MoveHero(move);
                 }
 
-                heroDamage = getHeroDamage();
+                
             }
         }
 
@@ -182,6 +178,55 @@ namespace Game_dev_S2_project_1
                 }    
             }
             currentlevel.UpdateVision(currentlevel, currentlevel.getHeroTile() ,enemyArray);
+        }
+        // Q5 Save Game 
+        public void SaveGame()
+        {
+            string filetext = "file.txt";
+            string fielbin = "file.bin";
+
+            string convert = File.ReadAllText(filetext);
+            byte[] binarydata = Encoding.UTF8.GetBytes(convert);
+            File.WriteAllBytes(filetext, binarydata); // converts the text file into a binary file to store the saved data
+            GameSaveData save = new GameSaveData(NumLevels, currentLevelNumber, currentlevel); // creates a new object to contain all the fields in one object, to save the fields into one file 
+
+            BinaryFormatter fomrat = new BinaryFormatter();
+
+            FileStream file = new FileStream("file.txt", FileMode.Create);  
+            fomrat.Serialize(file, save); // serilizes the fields in the object to convert it to data that is contained in the file
+            file.Close(); // closes the filestreamer 
+
+            
+
+           
+
+        } 
+        // Q 5 Load Game
+        public void LoadGame()
+        {
+
+            if (File.Exists("file.txt")) // checks if the saved file exists
+            {
+                BinaryFormatter format = new BinaryFormatter();
+                FileStream file = new FileStream("file.txt", FileMode.Open); // uses the formatter to derserlises the data
+                GameSaveData save = (GameSaveData)format.Deserialize(file); // creates a new object, and converts the data into it's designated fields in the gamesave object
+                file.Close();
+                if (save != null) {
+                    NumLevels = save.noLevels; // savadata object sets the loaded data into the gameegnine fields to load the saved map
+                    currentlevel = save.currentLevel;
+                    currentLevelNumber = save.currentLevelNumber;
+                }
+                MessageBox.Show("Loaded save successful\n" + MessageBoxButtons.OK); // confirms if the save was successful
+            }
+            
+            else
+            {
+                MessageBox.Show("Error failed to load game\n"+ MessageBoxButtons.OK); // displays an error if the file was not found 
+            }
+
+           
+            
+
         }
 
         //Part 2 - Q3.1
@@ -240,33 +285,27 @@ namespace Game_dev_S2_project_1
             return false;
         }
 
-        
+        // Need to add comments
         public void TriggerAttack(Level.Direction direct)
         {
             if (game != GameState.GameOver) 
             {
 
-                //Will be updated later in POE
+                
                 HeroAttack(direct);
                 EnemiesAttack();
                 heroStats = getHeroStats();
-                heroDamage = getHeroDamage();
-                //nopickups = getPicUpNo();
                
-
                 if (currentlevel.getHeroTile().IsDead())
                 {
                     game = GameState.GameOver;
                 }
             }
             //call the current levels update exit method
-            currentlevel.UpdateExit(currentlevel.GetEnemyTiles());
-         
-
+            currentlevel.UpdateExit(currentlevel.GetEnemyTiles());      
         }
 
         //Loops through all living enemies and attacks any character tiles in their vision arrays 
-        
         private void EnemiesAttack() {
 
             EnemyTile[] et = currentlevel.GetEnemyTiles();
@@ -278,8 +317,6 @@ namespace Game_dev_S2_project_1
 
                     if (targets != null && targets.Length > 0)
                     {
-
-
 
                         for (int j = 0; j < targets.Length; j++)
                         {
@@ -301,22 +338,38 @@ namespace Game_dev_S2_project_1
             string temp = "HP: " + currentlevel.getHeroTile().HP() + "/40"; 
             return temp;
         }
-        //used inititally to keep track of damage but now is used to track status of exit
-        public string getHeroDamage() {
-            string tempd = "Damage: " + currentlevel.getHeroTile().Damage() + "/10"; //This where it displays the damage (outdated, will delete for final submissiosn
-            tempd = "Status of exit " + currentlevel.getExitTile().display; // shows the status of the exit
-            return tempd;
-        }
-
-        //Keeps track of the amount of pickups
-        public string getPicUpNo()
-        {
-            string temp = "no of Health Pick up items: " + currentlevel.text;
-            temp = "Status of exit " + currentlevel.getExitTile().ExitUnlocked;
-            temp = "Enemy health " + currentlevel.GetEnemyTiles()[0].HP();
-            return temp;
-        }
-
+       
 
     }
 }
+/*
+ * 
+ * References 
+ * Roy, T. (2012). How to save a Game State?. [Online]. Available at:
+ *  https://gamedev.stackexchange.com/questions/29195/how-to-save-a-game-state
+ * [Last Accessed 28 November 2023]
+ * 
+ * Arun, L. (2021). Serializing and Deserializing an Object as Binary Data Using Binary Formatter ASP.NET C#. [Online]. Available at:
+ * https://www.c-sharpcorner.com/UploadFile/d3e4b1/serializing-and-deserializing-the-object-as-binary-data-usin/ 
+ * [Last Accessed 28 November 2023]
+ * 
+   Anon. (2021). How to: Read and Write to a Newly Created Data File. [Online]. Available at:
+   https://learn.microsoft.com/en-us/dotnet/standard/io/how-to-read-and-write-to-a-newly-created-data-file 
+   [Last Accessed 28 November 2023]
+
+   Chand, M. (2023). How to Read a Binary File in C#. [Online]. Available at:
+   https://www.c-sharpcorner.com/UploadFile/mahesh/read-a-binary-file-in-C-Sharp/
+   [Last Accessed 28 November 2023]
+
+   Rhodanny (2021). How can I save data/information to text file and read back?. [Online]. Available at:
+   https://learn.microsoft.com/en-us/answers/questions/670543/how-can-i-save-data-information-to-text-file-and-r
+   [Last Accessed 28 November 2023]
+
+   Jallepalli, K. (2023). MessageBox.Show Method in C#. [Online]. Available at: 
+   https://www.c-sharpcorner.com/UploadFile/736bf5/messagebox-show/
+   [Last Accessed 28 November 2023] 
+   
+
+ 
+ */
+

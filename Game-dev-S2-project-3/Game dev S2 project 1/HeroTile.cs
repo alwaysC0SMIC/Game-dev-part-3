@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game_dev_S2_project_1
 {
+    [Serializable]
     public class HeroTile : CharacterTile
     {
         

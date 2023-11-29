@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game_dev_S2_project_1
 {
+    [Serializable]
     //Part 3 Q2.2
     public class WarlockTile : EnemyTile
     {

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 namespace Game_dev_S2_project_1
 {
     //Part 3 Q2.3
+    [Serializable]
     public class TyrantTile : EnemyTile
     {
         private Position tyrantPosition;
@@ -31,7 +32,6 @@ namespace Game_dev_S2_project_1
                 else
                 {
                     return char.Parse("§");
-
                 }
             }
         }
@@ -55,7 +55,6 @@ namespace Game_dev_S2_project_1
                 {
                     isEmpty = true;
                     potentialTiles[j] = visionArray[i];
-                    
                 }
                 else
                 {
@@ -171,31 +170,46 @@ namespace Game_dev_S2_project_1
         public override CharacterTile[] GetTargets()
         {
             CharacterTile[] targetTiles = null;
-            int j = 0;
+            
 
             EnemyTile[] enemyTargets = currentlvl.GetEnemyTiles();
             HeroTile heroTarget = currentlvl.getHeroTile();
-
-            //Checks if any enemy tiles are in range
-            for (int i = 0; i < enemyTargets.Length; i++)
+            if (enemyTargets != null && targetTiles != null) // will activaate if the objects are not null
             {
-                if (enemyTargets[i].x == this.x || enemyTargets[i].y == this.y)
+                int j = 0;
+                //Checks if any enemy tiles are in range
+                for (int i = 0; i < enemyTargets.Length; i++)
                 {
-                    targetTiles[j] = enemyTargets[i];
+                    if (enemyTargets[i] != null && enemyTargets[i].x == this.x || enemyTargets[i].y == this.y)
+                    {
+                        targetTiles[j] = enemyTargets[i];
+                        j++;
+                    }
+                    else
+                    {
+                        // exapnds array if the target tile goes out of bounds
+                        Array.Resize(ref targetTiles, targetTiles.Length + 1);
+                        targetTiles[j] = enemyTargets[i];
+                        j++;
+                    }
+                }
+
+                //Checks if hero tile is in range
+                if (heroTarget.x == this.x || heroTarget.y == this.y)
+                {
+                    targetTiles[j] = heroTarget;
                     j++;
-                    //!!causes crash when going to a next level!!
                 }
             }
-
-            //Checks if hero tile is in range
-            if (heroTarget.x == this.x || heroTarget.y == this.y)
-            {
-                targetTiles[j] = heroTarget;
-                j++;
-            }
-
-            return targetTiles;
+                return targetTiles;
+            
         }
 
     }
 }
+/*
+   Vongkol, H. (2016). Change Array Size. [Online]. Available at:
+   https://stackoverflow.com/questions/4840802/change-array-size
+   [Last Accessed 28 November 2023] 
+ 
+ */

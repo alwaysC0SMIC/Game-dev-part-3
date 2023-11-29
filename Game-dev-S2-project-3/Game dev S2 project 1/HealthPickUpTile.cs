@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Game_dev_S2_project_1
 {
+    [Serializable]
 
     public class HealthPickUpTile : PickUpTile
     {
-        //Q4.2
+       
         //Displays the health pack
 
         public override char display
@@ -19,6 +20,7 @@ namespace Game_dev_S2_project_1
                 return char.Parse("+");
             }
         }
+
         // saves postion co-ordniates of the object
         public HealthPickUpTile(Position position) : base(position)
         {
@@ -33,9 +35,5 @@ namespace Game_dev_S2_project_1
             tar.Heal(10);
         }
 
-        //Constructor
-
-
     }
-
 }

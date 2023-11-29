@@ -15,10 +15,7 @@ namespace Game_dev_S2_project_1
         {
             InitializeComponent();
             gameEngine = new GameEngine(NUMBER_OF_LEVELS);
-            PickUpLabel.Text = gameEngine.nopickups;
-
             UpdateDisplay();
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -37,12 +34,6 @@ namespace Game_dev_S2_project_1
                 //Part 2 Q3.1
                 gameEngine.TriggerAttack(keyPress);
                 hitPointsLabel.Text = gameEngine.heroStats;
-                PickUpLabel.Text = gameEngine.nopickups;
-
-                //This is debug code that was used inititally to determine damage but is currently used for status of exit
-                DamageLabel.Text = gameEngine.heroDamage;
-
-
                 UpdateDisplay();
             }
             //Left
@@ -53,11 +44,6 @@ namespace Game_dev_S2_project_1
 
                 gameEngine.TriggerAttack(keyPress);
                 hitPointsLabel.Text = gameEngine.heroStats;
-                PickUpLabel.Text = gameEngine.nopickups;
-
-                //This is debug code that was used inititally to determine damage but is currently used for status of exit
-                DamageLabel.Text = gameEngine.heroDamage;
-
                 UpdateDisplay();
             }
             //Right
@@ -68,12 +54,6 @@ namespace Game_dev_S2_project_1
 
                 gameEngine.TriggerAttack(keyPress);
                 hitPointsLabel.Text = gameEngine.heroStats;
-                PickUpLabel.Text = gameEngine.nopickups;
-
-                //This is debug code that was used inititally to determine damage but is currently used for status of exit
-                DamageLabel.Text = gameEngine.heroDamage;
-
-
                 UpdateDisplay();
             }
             //Down
@@ -84,11 +64,6 @@ namespace Game_dev_S2_project_1
 
                 gameEngine.TriggerAttack(keyPress);
                 hitPointsLabel.Text = gameEngine.heroStats;
-                PickUpLabel.Text = gameEngine.nopickups;
-
-                //This is debug code that was used inititally to determine damage but is currently used for status of exit
-                DamageLabel.Text = gameEngine.heroDamage;
-
                 UpdateDisplay();
             }
         }
@@ -104,7 +79,6 @@ namespace Game_dev_S2_project_1
         {
         }
 
-
         private void Up_Click(object sender, EventArgs e)
         {
 
@@ -113,7 +87,6 @@ namespace Game_dev_S2_project_1
 
             gameEngine.TriggerAttack(keyPress);
             hitPointsLabel.Text = gameEngine.heroStats;
-
             UpdateDisplay();
         }
 
@@ -125,7 +98,6 @@ namespace Game_dev_S2_project_1
 
             gameEngine.TriggerAttack(keyPress);
             hitPointsLabel.Text = gameEngine.heroStats;
-
             UpdateDisplay();
         }
 
@@ -137,7 +109,6 @@ namespace Game_dev_S2_project_1
 
             gameEngine.TriggerAttack(keyPress);
             hitPointsLabel.Text = gameEngine.heroStats;
-
             UpdateDisplay();
         }
 
@@ -149,15 +120,37 @@ namespace Game_dev_S2_project_1
 
             gameEngine.TriggerAttack(keyPress);
             hitPointsLabel.Text = gameEngine.heroStats;
-
-
             UpdateDisplay();
         }
 
-        private void DamageLabel_Click(object sender, EventArgs e)
+       
+
+        private void Save_Click(object sender, EventArgs e)
         {
+            gameEngine.SaveGame();
+            Save.BackColor = Color.Red;
+
+        }
+
+        private void Load_Click(object sender, EventArgs e)
+        {
+            gameEngine.LoadGame();
+            Load.BackColor = Color.Green;
+            UpdateDisplay();
 
         }
     }
 }//References:
-//https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.keypresseventargs.handled?view=windowsdesktop-7.0
+/* 
+ * 
+  Anon. (2019). How to set Foreground Colour of the Label in C#?. [Online]. Available at:
+  https://www.geeksforgeeks.org/how-to-set-the-foreground-color-of-the-label-in-c-sharp/ 
+  [Last Accessed 28 November 2023]
+
+  Anon. (2023). KeyPressEventArgs.Handled Property. [Online]. Available at:
+  https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.keypresseventargs.handled?view=windowsdesktop-7.0
+  [Last Accessed 28 November 2023]
+
+
+
+ */

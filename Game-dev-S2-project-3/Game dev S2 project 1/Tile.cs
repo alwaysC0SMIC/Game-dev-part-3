@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Game_dev_S2_project_1
 {
+    [Serializable]
     public abstract class Tile
     {
         // A private field of type position
